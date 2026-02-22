@@ -262,7 +262,7 @@ def plot_geodesics_2d(rays_data):
 
 # Visualization (3D)
 def plot_geodesics_3d(rays_data):
-    fig = plt.figures(figsize=(12, 10), facecolor="#0d1117")
+    fig = plt.figure(figsize=(12, 10), facecolor="#0d1117")
     ax = fig.add_subplot(111, projection="3d", facecolor="#0d1117")
 
     # Event Horizon Sphere
