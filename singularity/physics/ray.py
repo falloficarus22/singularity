@@ -13,7 +13,7 @@ def init_ray(pos, direction, rs):
 
     dr = st * cp * d.x + st * sp * d.y + ct * d.z
     dtheta = (ct * cp * d.x + ct * sp * d.y - st * d.z) / r
-    dphi = (cp * d.y - sp * d.x) / r * st
+    dphi = (cp * d.y - sp * d.x) / (r * st)
 
     # Conserved Energy For A Null Geodesic (Photon)
     f = 1.0 - rs / r

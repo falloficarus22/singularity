@@ -1,8 +1,8 @@
 import numpy as np
 import taichi as ti
 
-from physics.integrator import rk4_step
-from physics.ray import init_ray
+from singularity.physics.integrator import rk4_step
+from singularity.physics.ray import init_ray
 
 
 @ti.data_oriented
@@ -29,7 +29,7 @@ class RayTracer:
             px = (2.0 * (i + 0.5) / self.width - 1.0) * aspect * ti.tan(fov / 2.0)
             py = (2.0 * (j + 0.5) / self.height - 1.0) * ti.tan(fov / 2.0)
 
-            direction = (cam_fwd + px * cam_right * py * cam_up).normalized()
+            direction = (cam_fwd + px * cam_right + py * cam_up).normalized()
 
             # Initial Ray State
             state, e_cons = init_ray(cam_pos, direction, self.rs)

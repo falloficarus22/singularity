@@ -27,7 +27,7 @@ def geodesic_rhs(state, rs, e_cons):
     ddr = (
         -(rs / (2.0 * r**2)) * f * dt_dl**2
         + (rs / (2.0 * r**2 * f)) * dr**2
-        + r * (dtheta + st**2 * dphi**2)
+        + r * (dtheta**2 + st**2 * dphi**2)
     )
 
     ddtheta = -2.0 * dr * dtheta / r + st * ct * dphi**2
