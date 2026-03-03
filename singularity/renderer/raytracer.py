@@ -36,14 +36,16 @@ class RayTracer:
         fov: ti.f32,
         dl: ti.f32,
         max_steps: int,
+        aspect: ti.f32,
+        tan_fov: ti.f32,
     ):
         """
         Render the black hole scene from camera perspective
         """
-        aspect = self.width / self.height
-        tan_fov = ti.tan(fov / 2.0)
-        
         for i, j in self.pixels:
+            # Initialize to black for this pixel
+            self.pixels[i, j] = ti.Vector([0.0, 0.0, 0.0])
+            
             # Normalized device coordinates (-1 to 1)
             ndc_x = (2.0 * (i + 0.5) / self.width - 1.0)
             ndc_y = (2.0 * (j + 0.5) / self.height - 1.0)
@@ -152,13 +154,12 @@ class RayTracer:
         max_steps: int,
         jitter_x: ti.f32,
         jitter_y: ti.f32,
+        aspect: ti.f32,
+        tan_fov: ti.f32,
     ):
         """
         Render with jittered sampling for anti-aliasing
         """
-        aspect = self.width / self.height
-        tan_fov = ti.tan(fov / 2.0)
-
         for i, j in self.pixels:
             # Add jitter for anti-aliasing
             ndc_x = (2.0 * (i + jitter_x) / self.width - 1.0)

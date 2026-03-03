@@ -117,6 +117,10 @@ def run_colab_mode():
         # Get camera vectors for Taichi
         c_pos, c_fwd, c_up, c_rt = camera.get_taichi_vectors()
         
+        # Calculate aspect and tan_fov in Python scope
+        aspect = WIDTH / HEIGHT
+        tan_fov = math.tan(camera.fov / 2.0)
+        
         # Render frame
         tracer.render(
             cam_pos=c_pos,
@@ -125,7 +129,9 @@ def run_colab_mode():
             cam_right=c_rt,
             fov=camera.fov,
             dl=D_LAMBDA,
-            max_steps=MAX_STEPS
+            max_steps=MAX_STEPS,
+            aspect=aspect,
+            tan_fov=tan_fov
         )
         
         # Update display
@@ -206,6 +212,10 @@ def run_local_mode():
         # Get camera vectors for Taichi
         c_pos, c_fwd, c_up, c_rt = camera.get_taichi_vectors()
         
+        # Calculate aspect and tan_fov in Python scope
+        aspect = WIDTH / HEIGHT
+        tan_fov = math.tan(camera.fov / 2.0)
+        
         # Render frame
         tracer.render(
             cam_pos=c_pos,
@@ -214,7 +224,9 @@ def run_local_mode():
             cam_right=c_rt,
             fov=camera.fov,
             dl=D_LAMBDA,
-            max_steps=MAX_STEPS
+            max_steps=MAX_STEPS,
+            aspect=aspect,
+            tan_fov=tan_fov
         )
         
         # Update display
