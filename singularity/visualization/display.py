@@ -1,11 +1,4 @@
-import sys
-
-def is_colab():
-    try:
-        import google.colab
-        return True
-    except ImportError:
-        return False
+from singularity.config import is_colab
 
 def get_display_manager(width, height):
     if is_colab():

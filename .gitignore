@@ -1,5 +1,24 @@
-AGENT.md
+# Python
+__pycache__/
+*.py[cod]
+*$py.class
+.pytest_cache/
+.coverage
+htmlcov/
+
+# Build/Dist
+build/
+dist/
+*.egg-info/
+
+# Environments
+.env
+.venv
+env/
+venv/
+ENV/
+
+# Project specific
 *.png
-__pycache__/*
-*/__pycache__/*
-*.pyc
+AGENT.md
+.gemini/

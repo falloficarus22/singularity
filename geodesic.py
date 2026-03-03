@@ -10,9 +10,7 @@ import time
 import matplotlib.pyplot as plt
 import numpy as np
 from matplotlib.patches import Circle
-from matplotlib.typing import RGBAColorType, RGBAColourType, RGBColorType
 from mpl_toolkits.mplot3d import Axes3D
-from pandas.io.formats.printing import EscapeChars
 
 # Physical Constants & Black Hole Parameters
 C = 299792458.0
